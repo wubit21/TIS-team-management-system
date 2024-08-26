@@ -1,0 +1,52 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+
+<style type="text/css">
+
+.group {
+  margin-top: 370px;
+}
+ 
+
+input[type=text] {
+  width: 60%;
+  padding: 8px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+input[type=password] {
+  width: 60%;
+  padding: 8px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+input[type=submit] {
+  background-color: #41454b;
+  border: none;
+  color: white;
+  padding: 8px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+      </style>
+  <div class=EG >
+    <div class ="group">
+      <form method="post">
+        {% csrf_token %}
+        <h1>Adminstrator Login</h1>
+        <lable ><strong>Username:</strong> </lable>
+        <input type="text" placeholder="Enter Your Username" name="username"><br>
+        <lable><strong>Password:</strong></lable>
+        <input type="password" placeholder="Enter Your Password" name="password"><br>
+        
+        <input type="submit" value="Login">
+        <hr>
+        <p class="text-center">Forgot your password?  <a href=" {% url 'password_reset' %}">click here</a></p>
+    </form>
+  </div>
+</div>
+{%endblock content%}

@@ -1,0 +1,46 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+<style type="text/css">
+
+.group {
+  margin-top: 370px;
+}
+ 
+
+input[type=text] {
+  width: 60%;
+  padding: 8px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+input[type=password] {
+  width: 60%;
+  padding: 8px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+input[type=submit] {
+  background-color: #41454b;
+  border: none;
+  color: white;
+  padding: 8px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+      </style>
+  <div class=EG >
+    <div class ="group">
+      <form method="post">
+        {% csrf_token %}
+        <h1>Delete a User</h1>
+        <lable ><strong>Username:</strong> </lable>
+        <input type="text" placeholder="Enter Username" name="username"><br>
+        <input type="submit" value="Delete">
+    </form>
+  </div>
+</div>
+{%endblock content%}

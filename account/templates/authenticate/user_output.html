@@ -1,0 +1,61 @@
+{% extends 'base.html'%}
+ {% block content %}
+ 
+  <style type="text/css">
+   .group {
+  margin: 50px;
+}
+#t1 {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#t1 td, #t1 th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#t1 tr:nth-child(even){background-color: #f2f2f2;}
+
+#t1 tr:hover {background-color: #ddd;}
+
+#t1 th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #41454b;
+  color: white;
+}
+</style>
+<div class="group">
+ <h1>Reports</h1>
+<table id="t1">
+        <tr>
+    <th>Technician</th>     
+    <th>Site</th>
+    <th>Time Finished</th>
+    <th>Task Done</th>
+    <th>Date</th>
+    <th>Details</th>
+    <th>Acceptance Sheet</th>
+  </tr>
+    {% for user_input in list %}
+<tr>
+  <td>{{ user_input.username }}</td>
+  <td>{{ user_input.site }}</td>
+  <td>{{ user_input.time }}</td>
+  <td>{{ user_input.task }}</td>
+  <td>{{ user_input.date }}</td>
+  <td>{{ user_input.details}}</td>
+  {%if user_input.images %}
+<td><a href="{{user_input.images.url}}" target="_blank">View</a> 
+</tr>
+{%else%}
+<td>No image 
+</tr>
+{%endif%}
+{% endfor %}
+</table> 
+</div>
+{% endblock%}
